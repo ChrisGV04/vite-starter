@@ -1,4 +1,11 @@
 {
+  "name": "vite-starter",
+  "description": "My own template for a Vite & Vue app with Tailwind v3, Pinia and more",
+  "author": {
+    "name": "Christian Gil",
+    "url": "https://chrisgvdev.com",
+    "email": "christian@chrisgvdev.com"
+  },
   "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
