@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
+    <!-- TODO: Favicon -->
     <link
       rel="icon"
       type="image/svg+xml"
       href="https://chrisgvdev.com/wp-content/uploads/2020/11/cgv-web-webclip.svg"
     />
 
-    <!-- Dark mode script -->
     <script>
+      // Initial dark mode
       (function () {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const setting = localStorage.getItem('vueuse-color-scheme') || 'auto';
@@ -23,7 +23,7 @@
     </script>
   </head>
 
-  <body class="selection:bg-sky-600 selection:text-sky-50 dark:bg-gray-900">
+  <body class="dark:bg-gray-800">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

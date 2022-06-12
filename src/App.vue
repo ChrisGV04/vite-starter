@@ -1,22 +1,35 @@
 <script setup lang="ts">
+import { APP_NAME } from '~/env';
+
 useHead({
-  title: 'Mi App',
+  title: APP_NAME,
   meta: [{ name: 'description', content: 'Descripción de la app' }],
 });
-
-// Functionality to listen to dark mode changes while app is running
-watch(
-  () => useDark(),
-  (isDark) => {
-    if (isDark.value) return document.documentElement.classList.toggle('dark', true);
-    return document.documentElement.classList.remove('dark');
-  }
-);
 </script>
 
 <template>
   <div>
-    <router-view />
+    <RouterView v-slot="{ Component }">
+      <Suspense>
+        <Transition
+          appear
+          mode="out-in"
+          appear-active-class="transition-opacity duration-150"
+          enter-active-class="transition-opacity duration-150"
+          leave-active-class="transition-opacity duration-150"
+          enter-from-class="opacity-0"
+          leave-from-class="opacity-100"
+          enter-to-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <component :is="Component" />
+        </Transition>
+
+        <template #fallback>
+          <div class="flex min-h-screen items-center justify-center">Loading...</div>
+        </template>
+      </Suspense>
+    </RouterView>
   </div>
 </template>
 

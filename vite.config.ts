@@ -15,6 +15,7 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+
   plugins: [
     Vue(),
     Pages(),
@@ -22,7 +23,9 @@ export default defineConfig({
 
     AutoImport({
       imports: ['vue', 'vue-router', '@vueuse/head', '@vueuse/core'],
+      dirs: ['src/composables', 'src/stores'],
       dts: 'src/types/auto-imports.d.ts',
+      vueTemplate: true,
     }),
 
     Components({
@@ -31,7 +34,7 @@ export default defineConfig({
       resolvers: [
         // auto import icons
         IconsResolver({ componentPrefix: '' }),
-        HeadlessUiResolver(),
+        HeadlessUiResolver({ prefix: 'Hui' }),
       ],
 
       dts: 'src/types/components.d.ts',
