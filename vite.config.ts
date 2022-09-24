@@ -40,21 +40,12 @@ export default defineConfig({
       dts: 'src/types/components.d.ts',
     }),
 
-    Icons({
-      compiler: 'vue3',
-      autoInstall: true,
-    }),
+    Icons({ compiler: 'vue3' }),
   ],
 
-  server: {
-    host: 'localhost',
-    port: 8080,
-  },
+  server: { host: 'localhost', port: 8080 },
 
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-  },
+  ssgOptions: { script: 'async', formatting: 'minify' },
 
   optimizeDeps: {
     include: ['vue', 'vue-router', '@vueuse/core', '@vueuse/head'],
